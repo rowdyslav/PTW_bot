@@ -21,12 +21,12 @@ class Madd(commands.Cog):
             category = discord.utils.get(ctx.guild.categories, name=categ)
 
         if voice:
-            create_channel = await ctx.guild.create_voice_channel
+            create_channel = ctx.guild.create_voice_channel
         else:
-            create_channel = await ctx.guild.create_text_channel
+            create_channel = ctx.guild.create_text_channel
 
         for number in range(1, count + 1):
-            create_channel(
+            await create_channel(
                 rform.replace('{n}', str(number)), category=category
             )
 
