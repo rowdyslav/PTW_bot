@@ -12,9 +12,8 @@ class Madd(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(administrator=True)
-    async def madd(self, ctx, *form: str, count: int, voice='',
+    async def madd(self, ctx, *, form: str, count: int, voice='',
                    categ='Default Category Name'):
-        rform = ' '.join(form)
         if categ == 'Default Category Name':
             category = await ctx.guild.create_category_channel(categ)
         else:
@@ -27,7 +26,7 @@ class Madd(commands.Cog):
 
         for number in range(1, count + 1):
             await create_channel(
-                rform.replace('{n}', str(number)), category=category
+                form.replace('{n}', str(number)), category=category
             )
 
 
