@@ -12,7 +12,7 @@ class Madd(commands.Cog):
 
     @commands.command()
     @commands.has_permissions(administrator=True)
-    async def madd(self, ctx, *, form: str, count: int, voice='',
+    async def madd(self, ctx, *, form: str, count: int, voice,
                    categ='Default Category Name'):
         if categ == 'Default Category Name':
             category = await ctx.guild.create_category_channel(categ)
